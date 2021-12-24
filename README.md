@@ -1,2 +1,1 @@
-# vector-field-obstacle-avoidance
-Vector Field-based Collision Avoidance with Uncertain Moving Obstacles
+## Vector Field-based Collision Avoidance with Uncertain Moving Obstacles
