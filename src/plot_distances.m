@@ -1,0 +1,11 @@
+di = 1;
+d = linspace(0,di,100);
+d2 = d-di;
+x = (d+d2)./(d.*d2);
+a_i = 0.3;
+g = a_i*x./sqrt(1+(2*a_i*x).^2) + .5;
+db = 1;
+figure; hold on;
+plot(d,db./(d+db) .* (di-d)./di);
+plot(d,(di-d)./di);
+plot(d,g);
