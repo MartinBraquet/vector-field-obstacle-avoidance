@@ -2,7 +2,7 @@
 
 Master's research at The University of Texas at Austin in the research group of Efstathios Bakolas.
 
-The paper resulting from these simulations has been submitted to the Modeling, Estimation and Control Conference (MECC 2022).
+The paper resulting from these simulations has been published at the Modeling, Estimation and Control Conference (MECC 2022).
 
 To cite this work (subject to acceptation at the conference): 
 
