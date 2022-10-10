@@ -1,5 +1,5 @@
 clear all; close all;
-obstacle_case = 'movingellipse'
+obstacle_case = 'multiellipseWall'
 anim_name = 'xxx.gif'
 animate = true
 multiplot = false
@@ -41,6 +41,32 @@ switch obstacle_case
         agent = Agent(X0agent,V0agent,Xfagent,uMax);
         env = Environment(0,agent,obs_ell,[],0.01);
         tf = 5;
+
+    case 'movingellipsetimevaryingshape'
+        delta = .6;
+        adot = .06; a0 = .1;
+        bdot = .03; b0 = .05;
+        a = @(t) a0+adot*t;
+        da = @(t) adot*t;
+        b = @(t) b0+bdot*t;
+        db = @(t) bdot*t;
+
+        theta = @(t) 0;
+        omega = @(t) 0;
+        ell = Shape.ellipseMoving(a,b,da,db,theta,omega);
+
+        Po = [.6;0.2]; 
+        Vo = [0;0.5];
+        theta = 0;
+        d_i = 0.3;
+        a_i = 0.01;
+        obs = ObstacleElliptical(ell,Po,Vo,theta,d_i,a_i);
+        X0agent = [0.2;0.2];
+        V0agent = [0;0];
+        Xfagent = [.8;0.6];
+        agent = Agent(X0agent,V0agent,Xfagent,uMax);
+        env = Environment(0,agent,obs,[],0.01);
+        tf = 10;
         
     case 'ellipsoid'
         a=1; b=2; c=3;
@@ -192,27 +218,27 @@ switch obstacle_case
         tf = 5;
 
     case 'multiellipseWall'
-        a=2; b=4;
+        a=0.1; b=0.2;
         ell = Shape.ellipse(a,b);
-        xmax = 10;
+        xmax = 1;
         ell2 = Shape.ellipse(10*xmax,xmax/100);
-        Po = [0;0.5]; 
+        Po = [0.5;0.55]; 
         Vo = [0;0];
         theta = pi/2;
-        d_i = 5;
-        a_i = 0.3;
+        d_i = 0.25;
+        a_i = 0.015;
         obs_1 = ObstacleElliptical(ell,Po,Vo,theta,d_i,a_i)
-        obs_2 = ObstacleElliptical(ell2,[-10;0],[0;0],pi/2,d_i,a_i)
-        obs_3 = ObstacleElliptical(ell2,[10;0],[0;0],pi/2,d_i,a_i)
-        obs_4 = ObstacleElliptical(ell2,[0;10],[0;0],0,d_i,a_i)
-        obs_5 = ObstacleElliptical(ell2,[0;-10],[0;0],0,d_i,a_i)
+        obs_2 = ObstacleElliptical(ell2,[1;0.5],[0;0],pi/2,d_i,a_i)
+        obs_3 = ObstacleElliptical(ell2,[0;0.5],[0;0],pi/2,d_i,a_i)
+        obs_4 = ObstacleElliptical(ell2,[0.5;1],[0;0],0,d_i,a_i)
+        obs_5 = ObstacleElliptical(ell2,[0.5;0],[0;0],0,d_i,a_i)
         obs = [obs_1 obs_2 obs_3 obs_4 obs_5];
         
-        X0agent = [-8;0];
+        X0agent = [0.1;0.5];
         V0agent = [0;0];
-        Xfagent = [8;0];
+        Xfagent = [0.9;0.5];
         agent = Agent(X0agent,V0agent,Xfagent,uMax);
-        env = Environment(0,agent,obs,[-10;10;-10;10],.01);
+        env = Environment(0,agent,obs,[],.01);
         tf = 5;
 
     case 'multiellipseSquare'
