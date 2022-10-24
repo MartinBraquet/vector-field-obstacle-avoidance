@@ -14,7 +14,7 @@ Braquet, M. and Bakolas E., "Vector Field-based Collision Avoidance for Moving O
   * An ellipse and 4 edges (*bounded* environment)
   * A square and an ellipse
 * Run `test_control_laws_circle.m` to compare the trajectories and control input norms for 3 different control laws (proportional controller only, proportional controller with threshold and proportional + derivative controllers) in the presence of a circular obstacle.
-* Run `test_pathlines_ellipse.m` to plot the pathlines along the generated vector field for different initial position.
+* Run `test_pathlines_ellipse.m` to plot the pathlines along the generated vector field for different initial positions.
 * Run `test_test_ellipsoid_closestPoint.m` to plot the shortest segment between a point and an ellipsoid.
 
 ### Simulation results
