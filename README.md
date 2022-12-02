@@ -1,5 +1,7 @@
 ## Vector Field-based Collision Avoidance for Moving Obstacles with Time-Varying Shape
 
+Official GitHub repository: https://github.com/MartinBraquet/vector-field-obstacle-avoidance.
+
 Master's research at The University of Texas at Austin in the research group of Efstathios Bakolas.
 
 The paper resulting from these simulations has been published at the Modeling, Estimation and Control Conference (MECC 2022).
